@@ -1,0 +1,285 @@
+:root {
+  --gray: hsl(0, 0%, 63%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  --dark-gray: hsl(0, 0%, 27%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white);
+  font: 500 12px/1 "League Spartan", sans-serif;
+}
+p {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--gray);
+}
+button {
+  border: none;
+  font: inherit;
+  background: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button img,
+a img,
+button svg,
+a svg {
+  pointer-events: none;
+}
+article img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+
+/*
+  Hero section
+*/
+
+.hero {
+  position: relative;
+}
+.hero nav {
+  top: 48px;
+  left: 24px;
+  width: 50%;
+  z-index: 999;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 992px) {
+  .hero nav {
+    top: 64px;
+    left: 64px;
+    width: 362px;
+  }
+}
+.hero nav #menu {
+  gap: 33px;
+  list-style: none;
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--white);
+  align-items: center;
+  text-transform: lowercase;
+}
+.hero nav #menu a {
+  outline: none;
+  position: relative;
+}
+.hero nav #menu a::before {
+  left: 50%;
+  width: 16px;
+  height: 2px;
+  position: absolute;
+  top: calc(100% + 9px);
+  transform: translateX(-50%);
+  background-color: currentColor;
+}
+.hero nav #menu a:hover::before,
+.hero nav #menu a:focus-visible::before {
+  content: "";
+}
+@media (max-width: 767px) {
+  .hero nav button {
+    z-index: 99;
+    cursor: pointer;
+  }
+  .hero nav #menu {
+    top: -48px;
+    left: -24px;
+    width: 200%;
+    display: none;
+    height: 110px;
+    position: absolute;
+    color: var(--black);
+    justify-content: end;
+    padding: 0 23px 0 27px;
+    background-color: var(--white);
+  }
+  .hero nav #menu::before {
+    z-index: -1;
+    inset: 0 0 0 0;
+    position: fixed;
+    background-color: rgb(0 0 0 / 40%);
+  }
+  .hero nav #menu.show {
+    display: flex;
+  }
+  .hero nav #menu.show::before {
+    content: "";
+  }
+}
+@media (min-width: 768px) {
+  .hero nav button {
+    display: none;
+  }
+  .hero nav #menu {
+    display: flex;
+  }
+}
+
+.hero .slide:not([hidden]) {
+  display: grid;
+  position: relative;
+  grid-template-rows: 360px 410px;
+}
+.hero .slide .txt {
+  display: grid;
+  place-items: center;
+}
+.hero .slide .txt > div {
+  width: 308px;
+}
+.hero .slide h1 {
+  font-size: 2.8em;
+}
+@media (max-width: 350px) {
+  .hero .slide .txt > div {
+    width: 250px;
+  }
+}
+@media (min-width: 1200px) {
+  .hero .slide .txt > div {
+    width: 400px;
+  }
+  .hero .slide h1 {
+    font-size: 3.8em;
+  }
+}
+
+.hero .slide p {
+  margin: 14px 0 43px;
+}
+@media (min-width: 992px) {
+  .hero .slide p {
+    margin: 22px 0 25px;
+  }
+}
+
+.hero .slide a {
+  gap: 16px;
+  display: flex;
+  font-weight: 600;
+  font-size: 1.2em;
+  will-change: color;
+  color: var(--black);
+  align-items: center;
+  letter-spacing: 14px;
+  text-transform: uppercase;
+}
+.hero .slide a:hover,
+.hero .slide a:focus-visible {
+  color: var(--dark-gray);
+}
+
+.hero .controls {
+  right: 0;
+  top: 304px;
+  display: grid;
+  position: absolute;
+  grid-template-rows: 56px;
+  grid-template-columns: 56px 56px;
+}
+.hero .controls button {
+  will-change: background-color;
+  background-color: var(--black);
+}
+.hero .controls button:disabled {
+  background-color: gray;
+}
+.hero .controls button:not(:disabled):hover,
+.hero .controls button:not(:disabled):focus-visible {
+  background-color: var(--dark-gray);
+}
+@media (min-width: 768px) {
+  .hero .slide:not([hidden]) {
+    grid-template-rows: 534px;
+    grid-template-columns: 1.3fr 1fr;
+  }
+  .hero .controls {
+    top: 454px;
+    left: 56.5%;
+    grid-template-rows: 80px;
+    grid-template-columns: 80px 80px;
+  }
+}
+@media (min-width: 1440px) {
+  .hero .slide:not([hidden]) {
+    grid-template-columns: 840px 1fr;
+  }
+  .hero .controls {
+    left: 840px;
+  }
+}
+
+/*
+  About section
+*/
+
+.about article {
+  display: grid;
+  grid-template-rows: 238px 303px 227px;
+}
+.about article .wrapper {
+  display: grid;
+  padding: 0 32px;
+  place-items: center;
+}
+.about article h2 {
+  font-size: 1.2em;
+  letter-spacing: 5px;
+  margin-bottom: 19px;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+@media (max-width: 374px) {
+  .about article .wrapper {
+    padding: 0 16px;
+  }
+  .about article h2 {
+    letter-spacing: 3px;
+  }
+}
+@media (min-width: 768px) {
+  .about article {
+    grid-template-rows: 266px;
+    grid-template-columns: 1fr 1.4fr 1fr;
+  }
+  .about article h2 {
+    padding-top: 14px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .about article .wrapper {
+    padding: 0 16px;
+  }
+}
+@media (min-width: 992px) {
+  .about article h2 {
+    font-size: 1.3em;
+    letter-spacing: 7px;
+    margin-bottom: 15px;
+  }
+}
+@media (min-width: 1200px) {
+  .about article {
+    grid-template-columns: minmax(0, 420px) minmax(0, 580px) minmax(0, 440px);
+  }
+  .about article .wrapper {
+    padding: 0 48px;
+  }
+}
