@@ -7,4 +7,4 @@ This is a solution to the [Room homepage challenge on Frontend Mentor](https://w
 ## Links
 
 - Live Site [URL](https://mhmd-tarek-mhmd.github.io/Room-homepage/)
-- Solution [URL](https://www.frontendmentor.io/solutions/room-homepage-)
+- Solution [URL](https://www.frontendmentor.io/solutions/room-homepage-bJqcwCpHuq)
