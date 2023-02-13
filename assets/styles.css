@@ -49,6 +49,8 @@ article img {
 .hero {
   position: relative;
 }
+
+/* Hero Nav */
 .hero nav {
   top: 48px;
   left: 24px;
@@ -61,9 +63,15 @@ article img {
 }
 @media (min-width: 992px) {
   .hero nav {
+    top: 40px;
+    left: 40px;
+    width: 362px;
+  }
+}
+@media (min-width: 1200px) {
+  .hero nav {
     top: 64px;
     left: 64px;
-    width: 362px;
   }
 }
 .hero nav #menu {
@@ -92,7 +100,7 @@ article img {
 .hero nav #menu a:focus-visible::before {
   content: "";
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .hero nav button {
     z-index: 99;
     cursor: pointer;
@@ -122,7 +130,7 @@ article img {
     content: "";
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .hero nav button {
     display: none;
   }
@@ -131,36 +139,51 @@ article img {
   }
 }
 
+/* Hero Slider */
 .hero .slide:not([hidden]) {
   display: grid;
   position: relative;
   grid-template-rows: 360px 410px;
+}
+@media (min-width: 992px) {
+  .hero .slide:not([hidden]) {
+    grid-template-rows: 400px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  .hero .slide:not([hidden]) {
+    grid-template-rows: 534px;
+    grid-template-columns: 1.4fr 1fr;
+  }
 }
 .hero .slide .txt {
   display: grid;
   place-items: center;
 }
 .hero .slide .txt > div {
-  width: 308px;
+  min-width: 250px;
+  max-width: 400px;
+}
+@media (max-width: 991px) {
+  .hero .slide .txt > div {
+    padding-inline: 32px;
+  }
 }
 .hero .slide h1 {
   font-weight: 600;
   font-size: 2.8em;
 }
-@media (max-width: 350px) {
-  .hero .slide .txt > div {
-    width: 250px;
+@media (min-width: 992px) {
+  .hero .slide h1 {
+    font-size: 2.2em;
   }
 }
 @media (min-width: 1200px) {
-  .hero .slide .txt > div {
-    width: 400px;
-  }
   .hero .slide h1 {
     font-size: 3.8em;
   }
 }
-
 .hero .slide p {
   margin: 14px 0 43px;
 }
@@ -169,7 +192,6 @@ article img {
     margin: 22px 0 25px;
   }
 }
-
 .hero .slide a {
   gap: 16px;
   display: flex;
@@ -179,6 +201,7 @@ article img {
   color: var(--black);
   align-items: center;
   letter-spacing: 14px;
+  white-space: nowrap;
   text-transform: uppercase;
 }
 .hero .slide a:hover,
@@ -186,6 +209,7 @@ article img {
   color: var(--dark-gray);
 }
 
+/* Hero Slider Controls */
 .hero .controls {
   right: 0;
   top: 304px;
@@ -193,6 +217,20 @@ article img {
   position: absolute;
   grid-template-rows: 56px;
   grid-template-columns: 56px 56px;
+}
+@media (min-width: 992px) {
+  .hero .controls {
+    bottom: 0;
+    left: 50%;
+    top: initial;
+    grid-template-rows: 80px;
+    grid-template-columns: 80px 80px;
+  }
+}
+@media (min-width: 1200px) {
+  .hero .controls {
+    left: 58.3vw;
+  }
 }
 .hero .controls button {
   will-change: background-color;
@@ -205,26 +243,6 @@ article img {
 .hero .controls button:not(:disabled):focus-visible {
   background-color: var(--dark-gray);
 }
-@media (min-width: 768px) {
-  .hero .slide:not([hidden]) {
-    grid-template-rows: 534px;
-    grid-template-columns: 1.3fr 1fr;
-  }
-  .hero .controls {
-    top: 454px;
-    left: 56.5%;
-    grid-template-rows: 80px;
-    grid-template-columns: 80px 80px;
-  }
-}
-@media (min-width: 1440px) {
-  .hero .slide:not([hidden]) {
-    grid-template-columns: 840px 1fr;
-  }
-  .hero .controls {
-    left: 840px;
-  }
-}
 
 /*
   About section
@@ -232,7 +250,7 @@ article img {
 
 .about article {
   display: grid;
-  grid-template-rows: 238px 303px 227px;
+  grid-template-rows: minmax(238px, auto) 303px minmax(227px, auto);
 }
 .about article .wrapper {
   display: grid;
@@ -255,7 +273,7 @@ article img {
     letter-spacing: 3px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .about article {
     grid-template-rows: 266px;
     grid-template-columns: 1fr 1.4fr 1fr;
@@ -264,12 +282,7 @@ article img {
     padding-top: 14px;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
-  .about article .wrapper {
-    padding: 0 16px;
-  }
-}
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .about article h2 {
     font-size: 1.3em;
     letter-spacing: 7px;
@@ -277,10 +290,15 @@ article img {
   }
 }
 @media (min-width: 1200px) {
-  .about article {
-    grid-template-columns: minmax(0, 420px) minmax(0, 580px) minmax(0, 440px);
-  }
   .about article .wrapper {
     padding: 0 48px;
+  }
+}
+@media (min-width: 1440px) {
+  .about article {
+    grid-template-columns: minmax(420px, 1fr) minmax(580px, 1fr) minmax(
+        440px,
+        1fr
+      );
   }
 }
